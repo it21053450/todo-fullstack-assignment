@@ -33,3 +33,5 @@ App runs on: http://localhost:4200
 - MySQL runs via Docker:
 
   docker-compose up -d
+
+  App runs on: http://localhost:8081
