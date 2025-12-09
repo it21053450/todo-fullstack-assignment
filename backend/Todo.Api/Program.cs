@@ -3,6 +3,17 @@ using Todo.Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+// CORS
+var corsPolicy = "AllowAngular";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(corsPolicy, policy =>
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod());
+});
+
 // Add services to the container.
 builder.Services.AddControllers();
 
@@ -28,6 +39,7 @@ if (app.Environment.IsDevelopment())
 
 // ❗ You can temporarily comment this out if HTTPS gives issues
 // app.UseHttpsRedirection();
+app.UseCors(corsPolicy);
 
 app.UseAuthorization();
 

@@ -1,0 +1,58 @@
+<div class="app-container">
+  <div class="header">
+    <h1>📝 Todo Tasks</h1>
+  </div>
+
+  <div class="content-wrapper">
+    <!-- Create form -->
+    <form (ngSubmit)="addTask()" class="todo-form">
+      <div class="form-group">
+        <label for="title">Task Title</label>
+        <input
+          id="title"
+          type="text"
+          placeholder="Enter task title"
+          [(ngModel)]="newTitle"
+          name="title"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          placeholder="Enter task description"
+          [(ngModel)]="newDescription"
+          name="description"
+          rows="3"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">➕ Add Task</button>
+    </form>
+
+    <!-- Task list -->
+    <div class="tasks-panel">
+      <div *ngIf="loading" class="loading">⏳ Loading tasks...</div>
+      <div *ngIf="error" class="error-message">❌ {{ error }}</div>
+
+      <div class="tasks">
+        <div class="task-card" *ngFor="let task of tasks">
+          <div class="task-header">
+            <h3>{{ task.title }}</h3>
+          </div>
+          <p class="task-description">{{ task.description }}</p>
+          <small class="task-date">📅 {{ task.createdAt | localDate: 'short' }}</small>
+          <button class="btn btn-success" (click)="markDone(task)">✓ Mark Done</button>
+        </div>
+
+        <div *ngIf="!loading && tasks.length === 0" class="empty-state">
+          <p>🎉 No pending tasks!</p>
+          <p class="text-muted">You're all caught up. Time to relax!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
