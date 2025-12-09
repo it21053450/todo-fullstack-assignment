@@ -31,4 +31,5 @@ App runs on: http://localhost:4200
 
 ###Database
 - MySQL runs via Docker:
-    docker-compose up -d
+
+  docker-compose up -d
