@@ -9,7 +9,7 @@ import { Task } from '../models/task';
 export class TodoService {
   private http = inject(HttpClient);
 
-  // ⚠️ adjust if your API base path is different
+  
   private readonly apiBase = 'http://localhost:5292/api/tasks';
 
   // GET latest 5 incomplete tasks

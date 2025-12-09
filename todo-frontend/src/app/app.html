@@ -45,7 +45,7 @@
           </div>
           <p class="task-description">{{ task.description }}</p>
           <small class="task-date">📅 {{ task.createdAt | localDate: 'short' }}</small>
-          <button class="btn btn-success" (click)="markDone(task)">✓ Mark Done</button>
+          <button class="btn btn-success" (click)="markDone(task)">Done</button>
         </div>
 
         <div *ngIf="!loading && tasks.length === 0" class="empty-state">

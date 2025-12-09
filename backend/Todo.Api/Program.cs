@@ -37,7 +37,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// ❗ You can temporarily comment this out if HTTPS gives issues
+
 // app.UseHttpsRedirection();
 app.UseCors(corsPolicy);
 
